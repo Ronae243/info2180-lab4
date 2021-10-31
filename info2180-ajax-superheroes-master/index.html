@@ -9,25 +9,27 @@
 </head>
 <body>
 <div class="grid-container"> 
-    <div class="box1">
-        <header>
-            <div>
-                <h1>Avengers Character Search</h1>
-            </div>
-        </header>
-    </div>
+    <header class ="box1">
+        <div id = "center" class="container">
+            <h1>AVENGERS CHARACTER SEARCH</h1>
+        </div>
+    </header>
     <main>
-        <section>
-            <div class="box2">
+        <form class ="box2">
+            <div id = "center" class = "container">
+                <h3>Search by Full Name or Alias</h3>
+                <input type="text" name="hero" id="form" placeholder="e.g. Captain America or Steve Rogers">
                 <button type="search" class="btn">Search</button>
             </div>
+        </form>
+        <section class="box2">
+            <div class ="container">
+                <h1>RESULT</h1>
+                <div id ="result"></div>
+            </div>
+           
         </section>
-    </main>
-    <div class="box3">
-        <footer>
-            <p>Copyright &copy; 2020, Ronae Johnson</p>
-        </footer>
-    </div> 
+    </main>     
 </div>
 </body>
 </html>
