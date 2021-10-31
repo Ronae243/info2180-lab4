@@ -2,21 +2,32 @@
 
 function searchbtn(){
     var subbutton = document.querySelector("button");
-     console.log(subbutton);
-     subbutton.addEventListener("click", getemail);
+    console.log(subbutton);
+    subbutton.addEventListener("click", function(event) {
+        suphero();
+        event.preventDefault();
+    });
 }
 
-function getemail(){
+function sanitizeString(str){
+    str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim,"");
+    return str.trim();
+}
+
+function suphero(){
+
+    var userent = document.querySelector("input").value;
+    var sanUser = sanitizeString(userent);
+    var strResult = document.getElementById("result");
     var http = new XMLHttpRequest();
+    var url = "http://localhost:8080/info2180-lab4/info2180-ajax-superheroes-master/superheroes.php?q=";
     http.onreadystatechange = function(){
-        if(http.readyState == 4 && http.status ==200){
-            alert(http.response);
+        if(http.readyState == XMLHttpRequest.DONE && http.status ==200){
+                strResult.innerHTML = http.responseText;
         }
     }
-    var url = "http://localhost:8080/info2180-lab4/info2180-ajax-superheroes-master/superheroes.php";
-    http.open('GET', url, true);
-    http.send();
-    console.log(http);
+    http.open('GET', url+sanUser, true);
+    http.send();  
 }
 
 
